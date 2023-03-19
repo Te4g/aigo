@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"time"
 )
 
 var gptCmd = &cobra.Command{
@@ -40,7 +41,7 @@ var gptCmd = &cobra.Command{
 		req.Header.Add("Authorization", fmt.Sprintf("Bearer %s", os.Getenv("OPENAI_ACCESS_TOKEN")))
 		req.Header.Add("Content-Type", "application/json")
 
-		client := &http.Client{}
+		client := &http.Client{Timeout: 20 * time.Second}
 		resp, err := client.Do(req)
 		if err != nil {
 			panic(err)
