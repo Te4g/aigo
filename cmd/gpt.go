@@ -1,6 +1,3 @@
-/*
-Copyright © 2023 NAME HERE <EMAIL ADDRESS>
-*/
 package cmd
 
 import (
@@ -15,7 +12,6 @@ import (
 	"strings"
 )
 
-// gptCmd represents the gpt command
 var gptCmd = &cobra.Command{
 	Use:   "gpt",
 	Short: "Send prompt to GPT model and get response",
